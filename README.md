@@ -26,7 +26,7 @@ More info here: [On Disk: SurrealDB Docs](https://surrealdb.com/docs/installatio
 
 After the database is up and running:
 
--   Clone this repo: `git clone git@github.com/jerempy/surrealdb-starter-koa.git`
+-   Clone this repo: `git clone git@github.com:jerempy/surrealdb-starter-koa.git`
 -   Ensure you have node: `node --version`
 -   Install dependencies: `npm install`
 -   Run the server: `npm run server`
