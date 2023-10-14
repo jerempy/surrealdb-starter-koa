@@ -1,4 +1,5 @@
 import { db } from '../db/index.js';
+import { ensureTable } from '../helpers/index.js';
 
 const getEvents = async (ctx) => {
     const events = await db.select('event');
@@ -10,7 +11,8 @@ const getEvents = async (ctx) => {
 
 const getEventById = async (ctx) => {
     const { id } = ctx.params;
-    const [event] = await db.select(id);
+    const eventId = ensureTable('event', id);
+    const [event] = await db.select(eventId);
     ctx.body = {
         data: event,
     };
@@ -27,7 +29,8 @@ const addEvent = async (ctx) => {
 
 const updateEventById = async (ctx) => {
     const { id } = ctx.params;
-    const [event] = await db.merge(id, ctx.request.body);
+    const eventId = ensureTable('event', id);
+    const [event] = await db.merge(eventId, ctx.request.body);
     ctx.body = {
         data: event,
     };
@@ -36,7 +39,8 @@ const updateEventById = async (ctx) => {
 
 const deleteEventById = async (ctx) => {
     const { id } = ctx.params;
-    await db.delete(id);
+    const eventId = ensureTable('event', id);
+    await db.delete(eventId);
     ctx.status = 204;
 };
 
