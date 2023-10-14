@@ -5,8 +5,8 @@ import router from './routers/router.js';
 import { surrealInit } from './db/index.js';
 
 const App = new Koa();
-const host = process.env.SURREAL_HOST || 'http://127.0.0.1';
-const port = process.env.SURREAL_PORT || 8001;
+const host = process.env.SERVER_HOST || 'http://127.0.0.1';
+const port = process.env.SERVER_PORT || 8001;
 surrealInit();
 
 App.use(parser())

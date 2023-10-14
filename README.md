@@ -128,6 +128,14 @@ SURREAL_NAMESPACE || 'starter';
 SURREAL_DATABASE || 'events';
 ```
 
+### Extending / Next steps
+
+Some recommendations for next steps and extending are:
+
+-   Set up middleware for things such as authentication and authorization.
+-   Use SurrealDB as a peristent data store.
+-   As more models get added these can be moved into their own models folder
+
 ### Contributing
 
 If you find any issues or have suggestions for improvements, please feel free to open an issue or create a pull request.
