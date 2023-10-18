@@ -31,6 +31,8 @@ After the database is up and running:
 -   Install dependencies: `npm install`
 -   Run the server: `npm run server`
 
+![](./screenshots/run-server.jpg)
+
 The default host and port is `http://127.0.0.1:8001`
 
 ### Examples
@@ -39,89 +41,33 @@ Using postman or something similar:
 
 #### `POST http://127.0.0.1:8001/events/`
 
-REQUEST BODY:
-
-```json
-{
-    "some numbers": 123456,
-    "event happened": "twas a dark and stormy night"
-}
-```
-
-RESPONSE: STATUS 200
-
-```json
-{
-    "data": {
-        "id": "event:wgj8bwej6pfgydz5bvcr"
-    }
-}
-```
+![](./screenshots/post.jpg)
 
 #### `GET http://127.0.0.1:8001/events/`
 
-RESPONSE: STATUS 200
+![](./screenshots/get.jpg)
 
-```json
-{
-    "data": [
-        {
-            "event happened": "twas a dark and stormy night",
-            "id": "event:wgj8bwej6pfgydz5bvcr",
-            "some numbers": 123456
-        }
-    ]
-}
-```
+#### `GET http://127.0.0.1:8001/events/event:7h56a0g4weay16ynt8yj`
 
-#### `GET http://127.0.0.1:8001/events/event:wgj8bwej6pfgydz5bvcr`
+![](./screenshots/getId.jpg)
 
-RESPONSE: STATUS 200
+#### `PATCH http://127.0.0.1:8001/events/event:7h56a0g4weay16ynt8yj`
 
-```json
-{
-    "data": {
-        "event happened": "twas a dark and stormy night",
-        "id": "event:wgj8bwej6pfgydz5bvcr",
-        "some numbers": 123456
-    }
-}
-```
+![](./screenshots/patch.jpg)
 
-#### `PATCH http://127.0.0.1:8001/events/event:wgj8bwej6pfgydz5bvcr`
+#### `DELETE http://127.0.0.1:8001/events/event:7h56a0g4weay16ynt8yj`
 
-REQUEST BODY:
-
-```json
-{
-    "next event": "but it was sunny the next morning"
-}
-```
-
-RESPONSE: STATUS 200
-
-```json
-{
-    "data": {
-        "event happened": "twas a dark and stormy night",
-        "id": "event:wgj8bwej6pfgydz5bvcr",
-        "next event": "but it was sunny the next morning",
-        "some numbers": 123456
-    }
-}
-```
-
-#### `PATCH http://127.0.0.1:8001/events/event:wgj8bwej6pfgydz5bvcr`
-
-RESPONSE: STATUS 204
+![](./screenshots/delete.jpg)
 
 ### Configs
 
 The following environment variables are looked for (with their defaults):
 
 ```javascript
+SERVER_HOST || 'http://127.0.0.1';
+SERVER_PORT || 8001;
 SURREAL_HOST || 'http://127.0.0.1';
-SURREAL_PORT || 8001;
+SURREAL_PORT || 8000;
 SURREAL_USER || 'root';
 SURREAL_PASSWORD || 'root';
 SURREAL_NAMESPACE || 'starter';
